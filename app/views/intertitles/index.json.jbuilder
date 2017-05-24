@@ -1,0 +1,1 @@
+json.array! @intertitles, partial: 'intertitles/intertitle', as: :intertitle

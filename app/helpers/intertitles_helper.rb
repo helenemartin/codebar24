@@ -1,0 +1,2 @@
+module IntertitlesHelper
+end
