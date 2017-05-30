@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .intertitle {
-  height: 240px;
+  height: 500px;
   margin: 20px 0;
   padding: 25px;
   background: black;
@@ -16,10 +16,9 @@
   font-family: Helvetica, sans-serif;
   font-size: 36px;
   font-weight: 200;
+  line-height: 0.9;
+  padding: 50px;
   text-transform: uppercase;
 }
 
-.container p {
-  -webkit-animation: fadeout 1s 5s forwards;
-          animation: fadeout 1s 5s forwards;
-}
+

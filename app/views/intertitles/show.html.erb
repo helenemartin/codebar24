@@ -7,9 +7,27 @@
 
 <section class="intertitle">
   <div class="container"
-    <p><%= @intertitle.content %></p>
+    <span class="row"><%= @intertitle.content %></span>
   </div>
 </section>
 
 <%= link_to 'Edit', edit_intertitle_path(@intertitle) %> |
 <%= link_to 'Back', intertitles_path %>
+
+<script>
+  $(function() {
+  var boxHeight = $('.banner').height();
+  var boxWidth = $('.container').width();
+  var rows = $('.row');
+  var n = rows.length;
+  $('.container').css('line-height', boxHeight / n + 'px');
+  
+  for (i = 0; i < n; i++) {
+    var $row = $(rows[i]);
+    console.log($row);
+    var rowWidth = $row.width();
+    var charNum = $row.text().length;
+    $row.css('letter-spacing', (boxWidth - rowWidth) / charNum + 'px');
+  }
+  })
+</script>
