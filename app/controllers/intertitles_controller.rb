@@ -61,6 +61,11 @@ class IntertitlesController < ApplicationController
     end
   end
 
+  def show_all
+    @intertitles = Intertitle.all
+  end
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intertitle

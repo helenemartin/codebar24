@@ -21,4 +21,9 @@
   text-transform: uppercase;
 }
 
+.showall {
+  :nth-child(1n+2) {
+    display: none;
+  }
+}
 

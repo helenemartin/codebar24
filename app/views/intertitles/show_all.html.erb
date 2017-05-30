@@ -1,0 +1,29 @@
+<div class="showall">
+    <% @intertitles.each do |intertitle|%>
+        <div class="container" id="intertitle-<%= intertitle.id %>">
+            <%= intertitle.content %>
+        </div>
+    <% end %>
+</div>
+<script>
+ (function() {
+    var ids = []
+    console.log('.showall').find('.container')
+    var currentId = 0
+    $('.showall').find('.container').each(function() {ids.push('#' + this.id)})
+    function cycle() {
+        $(ids[currentId]).show()
+        $('.showall .container').not(ids[currentId]).hide()
+        if (currentId < ids.length) {
+            currentId++
+        } else {
+            currentId = 0
+            
+        }
+    }
+    
+    setInterval(cycle, 3000)
+}())
+</script>
+        
+    
