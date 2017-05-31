@@ -25,11 +25,11 @@
   :nth-child(1n+2) {
     display: none;
   }
+   height: 500px;
+  margin: 20px 0;
+  padding: 25px;
+  background: black;
+  color: white;
+  text-align: center;
 }
 
-#intertitle {
-  background: black;
-}
-#intertitle p {
-  color: white;
-}
