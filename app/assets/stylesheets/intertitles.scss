@@ -25,11 +25,12 @@
   :nth-child(1n+2) {
     display: none;
   }
-   height: 500px;
+  height: 500px;
   margin: 20px 0;
   padding: 25px;
   background: black;
   color: white;
+  line-height: 1.5;
   text-align: center;
 }
 
