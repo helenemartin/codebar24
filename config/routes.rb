@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'intertitles/show_all' => 'intertitles#show_all'
+  get 'intertitles/show_all' =>  'intertitles#show_all'
   resources :intertitles
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'intertitles#index'
+  root 'intertitles#show_all'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
