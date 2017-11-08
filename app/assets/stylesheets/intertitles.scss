@@ -1,6 +1,8 @@
 // Place all the styles related to the Intertitles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .intertitle {
   height: 500px;
   margin: 20px 0;
@@ -8,6 +10,10 @@
   background: black;
   color: white;
   text-align: center;
+}
+
+.form {
+  margin-left: 100px;
 }
 
 .container {

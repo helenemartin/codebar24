@@ -1,3 +1,5 @@
+<div class="form"></div>
+
 <%= form_for(@intertitle) do |f| %>
   <% if @intertitle.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +13,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -22,4 +25,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>
