@@ -11,8 +11,8 @@
     var currentId = 0
     $('.showall').find('.container').each(function() {ids.push('#' + this.id)})
     function cycle() {
+        $('.showall .container').hide()
         $(ids[currentId]).show()
-        $('.showall .container').not(ids[currentId]).hide()
         if (currentId < ids.length) {
             currentId++
         } else {
