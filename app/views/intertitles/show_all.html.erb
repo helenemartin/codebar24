@@ -1,7 +1,7 @@
 <div class="showall">
-    <% @intertitles.each do |intertitle|%>
-        <div class="container" id="intertitle-<%= intertitle.id %>">
-            <%= intertitle.content %>
+    <% @intertitle.content.split("\n").each_with_index do |sentence, index| %>
+        <div class="container" id="intertitle-<%= index %>">
+            <%= sentence %>
         </div>
     <% end %>
 </div>

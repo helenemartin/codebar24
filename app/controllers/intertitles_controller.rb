@@ -62,8 +62,13 @@ class IntertitlesController < ApplicationController
   end
 
   def show_all
-    @intertitles = Intertitle.all
+    # @intertitle = Intertitle.all
+    @intertitle = Intertitle.find_by_title('.')
   end
+  
+  # def show_one
+  #   @intertitle = Intertitle.find(params[:id])
+  # end
   
   
   private
