@@ -13,11 +13,9 @@
     function cycle() {
         $('.showall .container').hide()
         $(ids[currentId]).show()
-        if (currentId < ids.length) {
-            currentId++
-        } else {
+        currentId++
+        if (currentId >= ids.length) {
             currentId = 0
-            
         }
     }
     
