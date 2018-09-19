@@ -62,8 +62,8 @@ class IntertitlesController < ApplicationController
   end
 
   def show_all
-    # @intertitle = Intertitle.all
-    @intertitle = Intertitle.find_by_title('.')
+    @intertitles = Intertitle.all
+    puts @intertitles.inspect
   end
   
   # def show_one
