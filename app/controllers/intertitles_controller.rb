@@ -10,6 +10,8 @@ class IntertitlesController < ApplicationController
   # GET /intertitles/1
   # GET /intertitles/1.json
   def show
+    @intertitle = Intertitle.find(params[:id])
+    @split_intertitle = @intertitle.content.split(' ')
   end
 
   # GET /intertitles/new

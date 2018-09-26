@@ -1,16 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<!--<p>-->
-<!--  <strong>Title:</strong>-->
-<!--  <%= @intertitle.title %>-->
-<!--</p>-->
 
 <section class="intertitle">
   <div class="container"
-    <span class="row"><%= @intertitle.content %></span>
+    <% @split_intertitle.each_with_index do |word, index| %>
+        <div class="container" id="intertitle-<%= index %>" style='display: none;'>
+            <%= word %>
+        </div>
+    <% end %>
   </div>
 </section>
 
 <%= link_to 'Edit', edit_intertitle_path(@intertitle) %> 
 <%= link_to 'Back', intertitles_path %>
+
+<script>
+ (function() {
+    var ids = []
+    var currentId = 0
+    $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
+    function cycle() {
+        $('.intertitle .container').hide();
+        $(ids[currentId]).fadeIn(500)
+        currentId++
+        // if (currentId >= ids.length) {
+        //     currentId = 0
+        //}
+    }
+    
+    setInterval(cycle, 1000)
+}())
+</script>
 
