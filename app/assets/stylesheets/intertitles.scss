@@ -26,12 +26,21 @@
   padding: 50px;
   text-transform: uppercase;
 }
+.container_intertitle {
+  display: inline-block;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+   border: 2px solid white;
+  margin: 50px;
+  padding: 100px;
+}
 
 .showall {
   :nth-child(1n+2) {
-    display: none;
+    // display: none;
   }
-  height: 500px;
+  // height: 500px;
   margin: 20px 0;
   padding: 25px;
   background: black;

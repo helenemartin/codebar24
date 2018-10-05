@@ -1,28 +1,11 @@
 <div class="showall">
-    <% @intertitles.each_with_index do |intertitle, indexOne| %>
-        <% intertitle.content.split("\n").each_with_index do |sentence, indexTwo| %>
-            <div class="container" id="intertitle-<%= indexOne %>-<%= indexTwo %>">
-                <%= sentence %>
-            </div>
-        <% end %>
+    <% @intertitles.each do |intertitle| %>
+        <div class="container_intertitle">
+            <%= link_to intertitle.title, intertitle %>
+        </div>
     <% end %>
 </div>
-<script>
- (function() {
-    var ids = []
-    var currentId = 0
-    $('.showall').find('.container').each(function() {ids.push('#' + this.id)})
-    function cycle() {
-        $('.showall .container').hide()
-        $(ids[currentId]).show()
-        currentId++
-        if (currentId >= ids.length) {
-            currentId = 0
-        }
-    }
-    
-    setInterval(cycle, 3000)
-}())
-</script>
+
+
         
     

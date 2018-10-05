@@ -1,5 +1,4 @@
 class IntertitlesController < ApplicationController
-  before_action :set_intertitle, only: [:show, :edit, :update, :destroy]
 
   # GET /intertitles
   # GET /intertitles.json
@@ -21,6 +20,7 @@ class IntertitlesController < ApplicationController
 
   # GET /intertitles/1/edit
   def edit
+    @intertitle = Intertitle.find(params[:id])
   end
 
   # POST /intertitles
@@ -42,6 +42,7 @@ class IntertitlesController < ApplicationController
   # PATCH/PUT /intertitles/1
   # PATCH/PUT /intertitles/1.json
   def update
+    @intertitle = Intertitle.find(params[:id])
     respond_to do |format|
       if @intertitle.update(intertitle_params)
         format.html { redirect_to @intertitle, notice: 'Intertitle was successfully updated.' }
@@ -56,6 +57,7 @@ class IntertitlesController < ApplicationController
   # DELETE /intertitles/1
   # DELETE /intertitles/1.json
   def destroy
+    @intertitle = Intertitle.find(params[:id])
     @intertitle.destroy
     respond_to do |format|
       format.html { redirect_to intertitles_url, notice: 'Intertitle was successfully destroyed.' }
@@ -65,7 +67,6 @@ class IntertitlesController < ApplicationController
 
   def show_all
     @intertitles = Intertitle.all
-    puts @intertitles.inspect
   end
   
   # def show_one
@@ -74,11 +75,6 @@ class IntertitlesController < ApplicationController
   
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_intertitle
-      @intertitle = Intertitle.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def intertitle_params
       params.require(:intertitle).permit(:title, :content)
