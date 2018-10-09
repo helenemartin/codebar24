@@ -13,20 +13,35 @@
 <%= link_to 'Back', intertitles_path %>
 
 <script>
+//  (function() {
+//     var ids = []
+//     var currentId = 0
+//     $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
+//     function cycle() {
+//         $('.intertitle .container').hide();
+//         $(ids[currentId]).fadeIn(500)
+//         currentId++
+//         if (currentId >= ids.length) {
+//             currentId = 0
+//         }
+//     }
+    
+//     setInterval(cycle, 1000)
+// }())
+</script>
+
+<script>
  (function() {
     var ids = []
     var currentId = 0
     $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
     function cycle() {
-        $('.intertitle .container').hide();
-        $(ids[currentId]).fadeIn(500)
-        currentId++
-        if (currentId >= ids.length) {
-            currentId = 0
+        if (currentId < ids.length) {
+            $('.intertitle .container').hide();
+            $(ids[currentId]).fadeIn(500)
+            currentId++
         }
     }
-    
     setInterval(cycle, 1000)
 }())
 </script>
-
