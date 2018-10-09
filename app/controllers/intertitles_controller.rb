@@ -1,4 +1,5 @@
 class IntertitlesController < ApplicationController
+  before_action :require_login, except: [:index, :show]
 
   # GET /intertitles
   # GET /intertitles.json
@@ -10,7 +11,7 @@ class IntertitlesController < ApplicationController
   # GET /intertitles/1.json
   def show
     @intertitle = Intertitle.find(params[:id])
-    @split_intertitle = @intertitle.content.split(' ')
+    @split_intertitle = @intertitle.content.split("\n")
   end
 
   # GET /intertitles/new

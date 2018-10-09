@@ -21,9 +21,9 @@
         $('.intertitle .container').hide();
         $(ids[currentId]).fadeIn(500)
         currentId++
-        // if (currentId >= ids.length) {
-        //     currentId = 0
-        //}
+        if (currentId >= ids.length) {
+            currentId = 0
+        }
     }
     
     setInterval(cycle, 1000)
