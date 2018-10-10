@@ -34,14 +34,18 @@
  (function() {
     var ids = []
     var currentId = 0
-    $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
     function cycle() {
         if (currentId < ids.length) {
             $('.intertitle .container').hide();
             $(ids[currentId]).fadeIn(500)
             currentId++
+        } else {
+            $('.intertitle').find('.container').hide();
         }
     }
+    
+    $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
+    
     setInterval(cycle, 1000)
 }())
 </script>
