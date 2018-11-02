@@ -1,9 +1,7 @@
 <% if signed_in? %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-        <%= button_to 'Create New intertitle', intertitles_show_all_path, method: :get %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
+<% end %>
 
 <div class="showall">
     <% @intertitles.each do |intertitle| %>
