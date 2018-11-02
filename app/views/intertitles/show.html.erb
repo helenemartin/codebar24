@@ -12,40 +12,35 @@
 <%= link_to 'Edit', edit_intertitle_path(@intertitle) %> 
 <%= link_to 'Back', intertitles_path %>
 
-<script>
-//  (function() {
-//     var ids = []
-//     var currentId = 0
-//     $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
-//     function cycle() {
-//         $('.intertitle .container').hide();
-//         $(ids[currentId]).fadeIn(500)
-//         currentId++
-//         if (currentId >= ids.length) {
-//             currentId = 0
-//         }
-//     }
-    
-//     setInterval(cycle, 1000)
-// }())
-</script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
 <script>
- (function() {
+
+//  (function() {
+    $('.container').trigger("click");
+    responsiveVoice.OnVoiceReady = function (){
     var ids = []
-    var currentId = 0
+    var index = 0
     function cycle() {
-        if (currentId < ids.length) {
+        if (index < ids.length) {
             $('.intertitle .container').hide();
-            $(ids[currentId]).fadeIn(500)
-            currentId++
+            $(ids[index]).fadeIn(500).delay(20000);
+            var text = $(ids[index]).text().trim();
+            responsiveVoice.speak(text);
+            index++
+            var split_words = text.split(' ');
+            debugger;
+            var time_to_wait = split_words.length*1000;
+            setTimeout(cycle, time_to_wait);
         } else {
             $('.intertitle').find('.container').hide();
         }
     }
     
-    $('.intertitle').find('.container').each(function() {ids.push('#' + this.id)})
-    
-    setInterval(cycle, 1000)
-}())
+    $('.intertitle').find('.container').each(function() {
+        ids.push('#' + this.id)
+    })
+    cycle();
+}
+// }())
 </script>
