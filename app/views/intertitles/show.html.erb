@@ -6,6 +6,7 @@
             <%= word %>
         </div>
     <% end %>
+    <button class="mute">Mute</button>
   </div>
 </section>
 
@@ -17,30 +18,61 @@
 <script>
 
 //  (function() {
-    $('.container').trigger("click");
-    responsiveVoice.OnVoiceReady = function (){
-    var ids = []
-    var index = 0
-    function cycle() {
+var isMuted = false;
+var ids = []
+var index = 0
+var muteButton = $('.mute')
+
+$('.container').trigger("click");
+responsiveVoice.OnVoiceReady = function (){
+    function choseVoice() {
+        var voices = ["Australian Female", "Australian Male", "UK English Male", "Uk English Female"];
+        var index = Math.floor(Math.random() * voices.length);
+        console.log(index);
+        return voices[index];
+    }
+    
+    function cycle(voice) {
+        console.log(voice,"this is the voice");
         if (index < ids.length) {
-            $('.intertitle .container').hide();
-            $(ids[index]).fadeIn(500).delay(20000);
             var text = $(ids[index]).text().trim();
-            responsiveVoice.speak(text);
+            $('.intertitle .container').hide();
+            if (isMuted == true) {
+                $(ids[index]).fadeIn(500);
+            } else {
+                
+                responsiveVoice.speak(text, voice);
+            }
+            
             index++
             var split_words = text.split(' ');
-            debugger;
+            //sync voice with text
             var time_to_wait = split_words.length*1000;
-            setTimeout(cycle, time_to_wait);
+            setTimeout(function(){ cycle(voice)},time_to_wait);
         } else {
             $('.intertitle').find('.container').hide();
+            muteButton.fadeOut(3000);
         }
     }
     
     $('.intertitle').find('.container').each(function() {
         ids.push('#' + this.id)
     })
-    cycle();
+    
+    cycle(choseVoice());
 }
+
+$('.mute').click(function(){
+    isMuted = !isMuted
+     if (isMuted == true) {
+        $(ids[index]).show(); 
+        responsiveVoice.cancel();
+        $(this).html("unmute");
+     }else {
+         $(ids[index]).hide();
+         $(this).html("mute");
+     }
+});
+
 // }())
 </script>
