@@ -6,7 +6,10 @@
             <%= word %>
         </div>
     <% end %>
-    <button class="mute">Mute</button>
+    <!---->
+    <!--<i class="fas fa-volume-up"></i>-->
+    <button class="mute volumeToggle"><i class="fas fa-volume-mute"></i></button>
+    <button class="unmute invisible volumeToggle"><i class="fas fa-volume-up"></i></button>
   </div>
 </section>
 
@@ -33,15 +36,15 @@ responsiveVoice.OnVoiceReady = function (){
     }
     
     function cycle(voice) {
-        console.log(voice,"this is the voice");
+       
         if (index < ids.length) {
             var text = $(ids[index]).text().trim();
             $('.intertitle .container').hide();
             if (isMuted == true) {
                 $(ids[index]).fadeIn(500);
             } else {
-                
                 responsiveVoice.speak(text, voice);
+                 console.log(voice,"this is the voice");
             }
             
             index++
@@ -62,15 +65,18 @@ responsiveVoice.OnVoiceReady = function (){
     cycle(choseVoice());
 }
 
-$('.mute').click(function(){
+$(".volumeToggle").click(function(){
     isMuted = !isMuted
      if (isMuted == true) {
         $(ids[index]).show(); 
         responsiveVoice.cancel();
-        $(this).html("unmute");
+        $(".mute").addClass("invisible");
+        $(".unmute").removeClass("invisible");
      }else {
          $(ids[index]).hide();
-         $(this).html("mute");
+         $(".mute").removeClass("invisible");
+         $(".unmute").addClass("invisible");
+         
      }
 });
 
