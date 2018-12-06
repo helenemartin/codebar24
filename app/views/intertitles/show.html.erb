@@ -23,35 +23,37 @@
 //  (function() {
 var isMuted = false;
 var ids = []
-var index = 0
+var lineIndex = -1
 var muteButton = $('.mute')
+var loudButton = $('.unmute')
 
-$('.container').trigger("click");
+//$('.container').trigger("click");
 responsiveVoice.OnVoiceReady = function (){
     function choseVoice() {
         var voices = ["Australian Female", "Australian Male", "UK English Male", "Uk English Female"];
-        var index = Math.floor(Math.random() * voices.length);
-        console.log(index);
-        return voices[index];
+        var voiceIndex = Math.floor(Math.random() * voices.length);
+        return voices[voiceIndex];
     }
     
     function cycle(voice) {
-       
-        if (index < ids.length) {
-            var text = $(ids[index]).text().trim();
+        console.log(lineIndex);
+        lineIndex++
+        if (lineIndex < ids.length) {
+            var text = $(ids[lineIndex]).text().trim();
             $('.intertitle .container').hide();
             if (isMuted == true) {
-                $(ids[index]).fadeIn(500);
+                $(ids[lineIndex]).fadeIn(500);
             } else {
                 responsiveVoice.speak(text, voice);
                  console.log(voice,"this is the voice");
             }
             
-            index++
+            //lineIndex++
             var split_words = text.split(' ');
             //sync voice with text
             var time_to_wait = split_words.length*1000;
             setTimeout(function(){ cycle(voice)},time_to_wait);
+            
         } else {
             $('.intertitle').find('.container').hide();
             muteButton.fadeOut(3000);
@@ -63,19 +65,22 @@ responsiveVoice.OnVoiceReady = function (){
     })
     
     cycle(choseVoice());
+    
 }
 
 $(".volumeToggle").click(function(){
     isMuted = !isMuted
      if (isMuted == true) {
-        $(ids[index]).show(); 
+        $(ids[lineIndex]).show(); 
         responsiveVoice.cancel();
         $(".mute").addClass("invisible");
         $(".unmute").removeClass("invisible");
+        //loudButton.fadeOut(3000);
      }else {
-         $(ids[index]).hide();
+         $(ids[lineIndex]).hide();
          $(".mute").removeClass("invisible");
          $(".unmute").addClass("invisible");
+         
          
      }
 });
