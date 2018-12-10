@@ -13,8 +13,10 @@
   </div>
 </section>
 
-<%= link_to 'Edit', edit_intertitle_path(@intertitle) %> 
-<%= link_to 'Back', intertitles_path %>
+<% if signed_in? %>
+    <%= link_to 'Edit', edit_intertitle_path, method: :get %>
+<% end %>
+<%= link_to 'Close X', intertitles_path %>
 
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
@@ -46,6 +48,7 @@ responsiveVoice.OnVoiceReady = function (){
             } else {
                 responsiveVoice.speak(text, voice);
                  console.log(voice,"this is the voice");
+                 
             }
             
             //lineIndex++
@@ -57,6 +60,7 @@ responsiveVoice.OnVoiceReady = function (){
         } else {
             $('.intertitle').find('.container').hide();
             muteButton.fadeOut(3000);
+            loudButton.fadeOut(3000);
         }
     }
     
@@ -75,8 +79,7 @@ $(".volumeToggle").click(function(){
         responsiveVoice.cancel();
         $(".mute").addClass("invisible");
         $(".unmute").removeClass("invisible");
-        //loudButton.fadeOut(3000);
-     }else {
+     } else {
          $(ids[lineIndex]).hide();
          $(".mute").removeClass("invisible");
          $(".unmute").addClass("invisible");

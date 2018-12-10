@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
-<div class="form"></div> 
+<div class="form">
   <h1>Listing Intertitles</h1>
   
   <table>
     <thead>
-      <tr>
+      <ul>
         <th>Title</th>
         <th>Content</th>
         <th colspan="3"></th>
-      </tr>
+      </ul>
     </thead>
   
     <tbody>
@@ -16,9 +16,9 @@
         <tr>
           <td><%= intertitle.title %></td>
           <td><%= intertitle.content %></td>
-          <td><%= link_to 'Show', intertitle %></td>
-          <td><%= link_to 'Edit', edit_intertitle_path(intertitle) %></td>
-          <td><%= link_to 'Destroy', intertitle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', intertitle, :style => "width:100px;border-radius: 0 !important", :class => "btn btn-success" %></td>
+          <td><%= link_to 'Edit', edit_intertitle_path(intertitle), :style => "float:right",:class => "btn btn-info"  %></td>
+          <td><%= link_to 'Destroy', intertitle, method: :delete, data: { confirm: 'Are you sure?' },:style => "float:right",:class => "btn btn-danger"  %></td>
         </tr>
       <% end %>
     </tbody>

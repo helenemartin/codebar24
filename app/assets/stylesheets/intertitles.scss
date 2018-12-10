@@ -53,12 +53,66 @@
   width: 30em;
 }
 
-.mute, unmute {
+.mute {
   position: absolute;
-  top: 500px;
-  left: 500px;
+  top: 450px;
+  right: 50px;
+}
+
+.unmute {
+  position: absolute;
+  top: 450px;
+  right: 50px;
 }
 
 .invisible {
   visibility: hidden;
 }
+
+button.index_button {
+  background: white;
+  border: 1px solid black;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+button.index_button:hover {
+  background: white;
+ text-decoration: none;
+ background: rgba(0, 0, 0, 0.9);
+}
+button.index_button:hover a {
+ text-decoration: none;
+}
+button.index_button:focus a {
+ text-decoration: none;
+ color: white;
+}
+button {
+  background: none;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 5px;
+}
+
+button:hover {
+  transform: translateY(0);
+}
+
+button:focus {
+  outline: none;
+}
+.gallery-curtain {
+  background-color: rgba(255,255,255, 0.5);
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.index_button:hover .gallery-curtain {
+    bottom: 0;
+  }

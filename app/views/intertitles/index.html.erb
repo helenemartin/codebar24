@@ -1,12 +1,15 @@
 <% if signed_in? %>
     <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
+ 
 <% end %>
 
 <div class="showall">
     <% @intertitles.each do |intertitle| %>
         <div class="container_intertitle">
-            <%= link_to intertitle.title, intertitle %>
+               <%= link_to intertitle.title, intertitle %>
         </div>
+         <!--<button class="index_button"><%= link_to 'View', intertitle %></button>-->
     <% end %>
+
 </div>
