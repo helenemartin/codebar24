@@ -3,13 +3,17 @@
     <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
  
 <% end %>
-
-<div class="showall">
-    <% @intertitles.each do |intertitle| %>
-        <div class="container_intertitle">
-               <%= link_to intertitle.title, intertitle %>
+<div class="wrapper">
+    <main class="main">
+        <div class="gallery">
+            <% @intertitles.each do |intertitle| %>
+                <div class="gallery-item">
+                    <h2><%= intertitle.title %></h2>
+                       <div class="gallery-curtain"><%= link_to 'View', intertitle, :class => "button index_button"%></div>
+                </div>
+                 <!--<button class="index_button"><%= link_to 'View', intertitle %></button>-->
+            <% end %>
         </div>
-         <!--<button class="index_button"><%= link_to 'View', intertitle %></button>-->
-    <% end %>
-
+    </main>
 </div>
+
