@@ -6,14 +6,80 @@
 <div class="wrapper">
     <main class="main">
         <div class="gallery">
-            <% @intertitles.each do |intertitle| %>
+            <% @intertitles.each_with_index do |intertitle, index| %>
                 <div class="gallery-item">
                     <h2><%= intertitle.title %></h2>
-                       <div class="gallery-curtain"><%= link_to 'View', intertitle, :class => "button index_button"%></div>
+                    <div class="gallery-curtain">
+                        <canvas id="canvas-<%= index %>"></canvas>
+                        <%= link_to 'View', intertitle, :class => "button index_button"%>
+                    </div>
                 </div>
-                 <!--<button class="index_button"><%= link_to 'View', intertitle %></button>-->
             <% end %>
         </div>
+        
     </main>
+    
 </div>
+ <script>
+generateCanvas();
+function generateCanvas(){
+    // var canvasLength ={
+    // this.canvas = getElementByTag.length;
+    //   for(; i < len;)
+    //   canvas[i++]
+    // document.getElementById('canvas');
+    // }
+    
+    var canvasLength = document.getElementsByTagName('canvas').length;
+        for (var i = 0; i < canvasLength ; i++) {
+            var canvas = document.getElementById('canvas-' + i);
+            var ctx = canvas.getContext('2d');
+            loop(ctx, true);
+        }
+    // canvas[i] = canvas.length;
+};
 
+// var canvas = document.getElementById('canvas');
+// var ctx = canvas.getContext('2d');
+
+// function resize() {
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+// }
+// resize();
+// window.onresize = resize;
+
+function noise(ctx) {
+    
+    var w = ctx.canvas.width,
+        h = ctx.canvas.height,
+        idata = ctx.createImageData(w, h),
+        buffer32 = new Uint32Array(idata.data.buffer),
+        len = buffer32.length,
+        i = 0;
+
+    for(; i < len;)
+        buffer32[i++] = ((255 * Math.random())|0) << 24;
+    
+    ctx.putImageData(idata, 0, 0);
+}
+
+// var toggle = true;
+
+// added toggle to get 30 FPS instead of 60 FPS
+function loop(ctx, toggle) {
+    toggle = !toggle;
+    if (toggle) {
+        requestAnimationFrame(function() {
+            loop(ctx, !toggle);
+        });
+        return;
+    }
+    noise(ctx);
+    requestAnimationFrame(function() {
+        loop(ctx, !toggle);
+    });
+};
+
+// loop();
+ </script>

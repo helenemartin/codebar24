@@ -57,44 +57,61 @@
   position: absolute;
   top: 450px;
   right: 50px;
+  background: black;
+  color: white;
+  border: none;
 }
 
 .unmute {
   position: absolute;
   top: 450px;
   right: 50px;
+  background: black;
+  color: white;
+  border: none;
 }
 
 .invisible {
   visibility: hidden;
 }
 
-.index_button {
+.button {
   background: white;
   border: 1px solid black;
-  text-transform: uppercase;
-  padding: 5px;
+    // border: none;
+    // color: red;
+    // text-transform: uppercase;
+    // background: rgba(0,0,0,0.9);
+    // padding: 5px;
 }
 
 .index_button:hover {
   background: white;
- text-decoration: none;
- background: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.9);
 }
 .index_button:hover a {
  text-decoration: none;
 }
-button.index_button:focus a {
- text-decoration: none;
- color: white;
-}
-button {
+
+button.index_button {
   background: none;
   border: none;
   color: white;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.9);
-  padding: 5px;
+  // padding: 5px;
+  margin: 100px;
+  z-index: 2;
+  
+}
+button.index_button:focus a {
+ text-decoration: none;
+ color: white!important;
+}
+button.index_button:visited a {
+ text-decoration: none;
+ color: white!important;
 }
 
 button:hover {
@@ -134,27 +151,37 @@ h2 {
 
 
 .gallery-curtain {
-  background-color: rgba(1,1,1,0.1);
-  padding: 20px;
   display: block;
-  text-align: center;
   position: absolute;
-  bottom: 0;
+  height: auto;
   width: 100%;
 }
 
 
 .gallery-curtain a {
-  color: red;
   text-transform: uppercase;
   text-decoration: none!important;
+  margin: 100px;
   right: 100%;
+  top: 0;
 }
 
 .gallery-curtain a:hover {
   background-color: grey;
   color: white;
 }
+
+canvas {
+  position: absolute;
+  opacity: 0.45;
+  transition: opacity 1s;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
 
 
 @media (min-width: 620px) {
@@ -187,6 +214,9 @@ h2 {
   .gallery-item:hover .gallery-curtain {
     bottom: 0;
   }
+  h2 {
+    font-size:25px;
+  }
 
 }
 
@@ -196,6 +226,7 @@ h2 {
   .gallery-item {
     width: calc(33.3% - 40px);
     height: 200px;
+    float: left;
   }
   
   h2 {
