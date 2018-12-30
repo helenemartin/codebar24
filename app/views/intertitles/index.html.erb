@@ -23,31 +23,15 @@
  <script>
 generateCanvas();
 function generateCanvas(){
-    // var canvasLength ={
-    // this.canvas = getElementByTag.length;
-    //   for(; i < len;)
-    //   canvas[i++]
-    // document.getElementById('canvas');
-    // }
-    
+
     var canvasLength = document.getElementsByTagName('canvas').length;
-        for (var i = 0; i < canvasLength ; i++) {
+        for (var i = 0; i <= canvasLength ; i++) {
             var canvas = document.getElementById('canvas-' + i);
             var ctx = canvas.getContext('2d');
             loop(ctx, true);
         }
-    // canvas[i] = canvas.length;
 };
 
-// var canvas = document.getElementById('canvas');
-// var ctx = canvas.getContext('2d');
-
-// function resize() {
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-// }
-// resize();
-// window.onresize = resize;
 
 function noise(ctx) {
     
@@ -64,9 +48,6 @@ function noise(ctx) {
     ctx.putImageData(idata, 0, 0);
 }
 
-// var toggle = true;
-
-// added toggle to get 30 FPS instead of 60 FPS
 function loop(ctx, toggle) {
     toggle = !toggle;
     if (toggle) {
@@ -81,5 +62,4 @@ function loop(ctx, toggle) {
     });
 };
 
-// loop();
  </script>
