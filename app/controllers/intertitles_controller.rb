@@ -5,6 +5,7 @@ class IntertitlesController < ApplicationController
   # GET /intertitles.json
   def index
     @intertitles = Intertitle.all
+    # @intertitles = Intertitle.all.shuffle.take(20)
   end
 
   # GET /intertitles/1
