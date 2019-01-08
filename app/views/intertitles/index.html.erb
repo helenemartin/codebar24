@@ -8,10 +8,15 @@
         <div class="gallery">
             <% @intertitles.each_with_index do |intertitle, index| %>
                 <div class="gallery-item">
-                    <h2><%= intertitle.title %></h2>
+                    <h2 class="title"><%= intertitle.title %></h2>
+                    <img class="image-tag" src="https://images.unsplash.com/photo-1530020793049-23eafadd208b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
+                    
                     <div class="gallery-curtain">
+                        
                         <canvas id="canvas-<%= index %>"></canvas>
+                        
                         <%= link_to 'View', intertitle, :class => "button index_button"%>
+                        
                     </div>
                 </div>
             <% end %>
