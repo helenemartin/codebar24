@@ -7,32 +7,56 @@
 }
 
 .sticky{
-  position: absolute;
-  width: 100%;
-  height: 50px;
+  // position: absolute;
+  // width: 100%;
+  // height: 50px;
   position: fixed;
-  background: #4169E1;
-  z-index: 100;
+  // background: #4169E1;
+  z-index: 1;
   top: 0;
 }
 
-.header {
-  position: relative;
-  color: #ffffff;
+#nav-title {
+  text-align: center;
+  
 }
 
-.header h1 {
-  position: absolute;
-  text-align: center;
+// .header {
+//   position: relative;
+//   color: #ffffff;
+// }
+header {
+  background-color: coral;
+  width: 100%;
+}
+header h1 {
+  display: inline-block;
   left: 40%;
   margin: 0;
 }
-.header h2 {
-  position: absolute;
-  right: 5%;
+header h2 {
+  display: inline-block;
+  right: 25%;
   top: 2%;
   margin: 0;
 }
+
+.main-content {
+  /*background-color: pink;*/
+  // padding-top: 75px;
+  // width: 100%;
+  margin-top: 145px;
+  float: left;
+  z-index: 0;
+}
+
+#btn-wrapper {
+  float: left;
+  display: block;
+  margin-top:100px;
+}
+
+
 
 .image-tag {
   border: 1px solid red;
@@ -160,11 +184,7 @@ button:focus {
   outline: none;
 }
 
-.main {
-  /*background-color: pink;*/
-  padding-top: 75px;
-  width: 100%;
-}
+
 h2 {
   font-size: 30px;
   text-align: center;
@@ -201,6 +221,7 @@ h2 {
   width: 100%;
 }
 
+
 .gallery-curtain a {
   text-transform: uppercase;
   text-decoration: none!important;
@@ -223,7 +244,6 @@ h2.title {
   z-index: -3;
 }
 canvas {
-  
   position: absolute;
   opacity: 0.95;
   transition: opacity 1s;
@@ -234,12 +254,38 @@ canvas {
   z-index: -1;
 }
 
+#footer {
+  background-color: teal;
+  width: 100%;
+  height: 500px;
+  margin-top: 24px;
+}
+// #myBtn {
+//   display: block; /* Hidden by default */
+//   position: fixed; /* Fixed/sticky position */
+//   bottom: 20px; /* Place the button at the bottom of the page */
+//   right: 30px; /* Place the button 30px from the right */
+//   z-index: 99; /* Make sure it does not overlap */
+//   border: none; /* Remove borders */
+//   outline: none; /* Remove outline */
+//   background-color: red; /* Set a background color */
+//   color: white; /* Text color */
+//   cursor: pointer; /* Add a mouse pointer on hover */
+//   padding: 15px; /* Some padding */
+//   border-radius: 10px; /* Rounded corners */
+//   font-size: 18px; /* Increase font size */
+// }
 
+// #myBtn:hover {
+//   background-color: #555; /* Add a dark-grey background on hover */
+// }
 
 @media (min-width: 620px) {
 
   .wrapper {
     display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .sidebar {
@@ -265,6 +311,12 @@ canvas {
   }
   .gallery-item:hover .gallery-curtain {
     bottom: 0;
+  }
+  .gallery-item:nth-child(3n):hover .gallery-curtain  {
+ 
+    height: 650px;
+    bottom: -200px;
+    transition: all 0.5s ease-in-out;
   }
   h2 {
     font-size:25px;

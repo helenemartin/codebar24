@@ -1,16 +1,25 @@
-<% if signed_in? %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
- 
-<% end %>
+
 <div class="wrapper">
-    <nav class="sticky">
-        <div class='header'>
-            <h1 id="text">Alt-Text</h1>
-            <h2 id="question">?</h2>
+    <!--wrapper-->
+    <header class="sticky">
+        <nav class="">
+        <div id="nav-title">
+            <!--header-->
+            <h1 id="text">Intertitles</h1>
+            <a href="#footer"><h2 id="question">?</h2></a>
         </div>
-    </nav>
-    <main class="main">
+
+        </nav>
+        <div id="btn-wrapper">
+            <% if signed_in? %>
+                <%= button_to 'Sign out', sign_out_path, method: :delete %>
+                <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
+            <% end %>
+         </div>
+    </header>
+    
+            
+    <section class="main-content">
         <div class="gallery">
             <% @intertitles.each_with_index do |intertitle, index| %>
                 <div class="gallery-item">
@@ -28,8 +37,11 @@
             <% end %>
         </div>
         
-    </main>
-    
+    </section>
+    <footer id="footer">
+        <h1>Explanation of what Intertitles is and the CRUD interface behind comes here</h1>
+        <!--<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>-->
+    </footer>
 </div>
  <script>
 generateCanvas();
@@ -72,5 +84,7 @@ function loop(ctx, toggle) {
         loop(ctx, !toggle);
     });
 };
+
+
 
  </script>
