@@ -245,7 +245,7 @@ h2.title {
 }
 canvas {
   position: absolute;
-  opacity: 0.95;
+  opacity: 0.9;
   transition: opacity 1s;
   top: 0;
   left: 0;
@@ -305,7 +305,7 @@ canvas {
     height: 200px;
     text-align: center;
     padding-top: 30%;
-    bottom: -200px;
+    bottom: -242px;
     transition: all 0.5s ease-in-out;
     
   }
@@ -313,9 +313,9 @@ canvas {
     bottom: 0;
   }
   .gallery-item:nth-child(3n):hover .gallery-curtain  {
- 
+    padding-top: 40%;
     height: 650px;
-    bottom: -200px;
+    bottom: -100px;
     transition: all 0.5s ease-in-out;
   }
   h2 {
@@ -338,7 +338,7 @@ canvas {
     bottom: 0;
   }
   .canvas {
-    padding-top: 200px;
+    padding-top: 100px;
     top: 0;
   }
 }
