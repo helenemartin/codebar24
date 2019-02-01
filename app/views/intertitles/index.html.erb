@@ -10,12 +10,16 @@
         </div>
 
         </nav>
-        <div id="btn-wrapper">
-            <% if signed_in? %>
-                <%= button_to 'Sign out', sign_out_path, method: :delete %>
-                <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
-            <% end %>
-         </div>
+            <ul id="btn-wrapper">
+                <% if signed_in? %>
+                   <li class="signout">
+                      <%= button_to 'Sign out', sign_out_path, method: :delete %> 
+                   </li>
+                    <li class="newintertitle">
+                        <%= button_to 'Create New intertitle', new_intertitle_path, method: :get %>
+                    </li>
+                <% end %>
+             </ul>
     </header>
     
             
@@ -40,19 +44,24 @@
     </section>
     <footer id="footer">
         <h1>Explanation of what Intertitles is and the CRUD interface behind the scene comes here</h1>
-        <!--<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>-->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </footer>
 </div>
  <script>
 generateCanvas();
 function generateCanvas(){
 
-    var canvasLength = document.getElementsByTagName('canvas').length;
-        for (var i = 0; i <= canvasLength ; i++) {
-            var canvas = document.getElementById('canvas-' + i);
-            var ctx = canvas.getContext('2d');
-            loop(ctx, true);
-        }
+    // var canvasLength = document.getElementsByTagName('canvas').length;
+    // for (var i = 0; i < canvasLength ; i++) {
+    //     var canvas = document.getElementById('canvas-' + i);
+    //     var ctx = canvas.getContext('2d');
+    //     loop(ctx, true);
+    // }
+    
+    document.querySelectorAll('canvas').forEach(function(canvas) {
+        var ctx = canvas.getContext('2d');
+        loop(ctx, true);
+    });
 };
 
 
@@ -85,6 +94,24 @@ function loop(ctx, toggle) {
     });
 };
 
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").classList.remove('top');
+  } else {
+    document.getElementById("myBtn").classList.add('top');
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+//   document.body.scrollTop = 0;
+//   document.documentElement.scrollTop = 0;
+    window.scroll({
+       top:0,
+       behavior: 'smooth',
+    });
+}
 
  </script>
