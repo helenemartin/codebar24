@@ -42,18 +42,24 @@
       .join('');
       if (e.results[0].isFinal) {
         text_area.value = text_area.value + transcript + "\n";
-        expand_box_if_needed();
+        // expand_box_if_needed();
+        outer_scroll();
       }
   });
   recognition.addEventListener('end', recognition.start);
   recognition.start();
   
-  function expand_box_if_needed(){
+  // function expand_box_if_needed(){
     
-    if (text_area.scrollHeight > text_area.clientHeight){
-      console.log("hi expand");
-      text_area.style.height = text_area.scrollHeight + 'px';
-    }
+  //   if (text_area.scrollHeight > text_area.clientHeight){
+  //     console.log("hi expand");
+  //     text_area.style.height = text_area.scrollHeight + 'px';
+  //   }
+    
+  // }
+  
+  function outer_scroll(){
+    text_area.scrollTop = text_area.scrollHeight;
     
   }
 

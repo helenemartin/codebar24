@@ -7,6 +7,7 @@
             <!--header-->
             <h1 id="text">Intertitles</h1>
             <a href="#footer"><h2 id="question">?</h2></a>
+            <!--<button onclick="bottomFunction()" id="question" title="Go to top">?</button>-->
         </div>
 
         </nav>
@@ -42,7 +43,8 @@
         </div>
         
     </section>
-    <footer id="footer">
+    <a name="footer"></a>
+    <footer id="footer" >
         <h1>Explanation of what Intertitles is and the CRUD interface behind the scene comes here</h1>
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </footer>
@@ -97,10 +99,13 @@ function loop(ctx, toggle) {
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").classList.remove('top');
+  if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+    // document.getElementById("myBtn").classList.remove('top');
+    document.getElementById("myBtn").style.display="block";
   } else {
-    document.getElementById("myBtn").classList.add('top');
+    // document.getElementById("myBtn").classList.add('top');
+    
+    document.getElementById("myBtn").style.display="";
   }
 }
 
@@ -112,6 +117,7 @@ function topFunction() {
        top:0,
        behavior: 'smooth',
     });
+    
 }
 
  </script>
