@@ -28,16 +28,13 @@
         <div class="gallery">
             <% @intertitles.each_with_index do |intertitle, index| %>
                 <div class="gallery-item">
+                    <!--div class="gallery-item font#{(1..5).to_a.sample}"-->
                     <h2 class="title"><%= intertitle.title %></h2>
-                    <img class="image-tag" src="images">
                     
                     <div class="gallery-curtain">
-                        
-                        <canvas id="canvas-<%= index %>"></canvas>
-                        
-                        <%= link_to 'View', intertitle, :class => "button index_button"%>
-                        
+                            <!--<div><%= index %></div>-->
                     </div>
+                    <%= link_to 'View', intertitle, :class => "button index_button"%>
                 </div>
             <% end %>
         </div>
@@ -45,56 +42,58 @@
     </section>
     <a name="footer"></a>
     <footer id="footer" >
+        <div class="footertextWrapper">
         <h1>Explanation of what Intertitles is and the CRUD interface behind the scene comes here</h1>
+        <div class="aside1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis egestas placerat. Quisque ac faucibus metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed eu lectus vitae ex consectetur mollis. Maecenas ornare finibus ligula at vehicula. Maecenas auctor a mi a cursus. Vestibulum ex felis, dapibus ac pulvinar sed, venenatis id nisi.
+
+Pellentesque molestie pretium magna, in mattis nisi tristique et. Nulla facilisi. Aliquam dictum lectus libero, ac placerat ex sagittis quis. Donec sit amet libero dapibus, sagittis tellus vitae, varius mauris. Pellentesque imperdiet aliquet magna at facilisis. Donec quis ullamcorper lacus. Morbi sed tortor sem. Nam eu erat sit amet mi lacinia aliquam. Mauris feugiat, nisi eu aliquet gravida, nunc justo mattis nulla, ac ullamcorper sapien velit nec sapien. Proin placerat odio vitae ultricies iaculis. Duis sollicitudin mattis quam viverra maximus. Proin dapibus, leo consequat ultricies efficitur, arcu tellus vehicula ante, id ornare diam metus quis lacus.</p>
+        </div>
+        <div class="aside2"></div>
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        </div>
     </footer>
 </div>
  <script>
-generateCanvas();
-function generateCanvas(){
+// generateCanvas();
+// function generateCanvas(){
 
-    // var canvasLength = document.getElementsByTagName('canvas').length;
-    // for (var i = 0; i < canvasLength ; i++) {
-    //     var canvas = document.getElementById('canvas-' + i);
-    //     var ctx = canvas.getContext('2d');
-    //     loop(ctx, true);
-    // }
     
-    document.querySelectorAll('canvas').forEach(function(canvas) {
-        var ctx = canvas.getContext('2d');
-        loop(ctx, true);
-    });
-};
+//     document.querySelectorAll('canvas').forEach(function(canvas) {
+//         var ctx = canvas.getContext('2d');
+//         loop(ctx, true);
+//     });
+// };
 
 
-function noise(ctx) {
+// function noise(ctx) {
     
-    var w = ctx.canvas.width,
-        h = ctx.canvas.height,
-        idata = ctx.createImageData(w, h),
-        buffer32 = new Uint32Array(idata.data.buffer),
-        len = buffer32.length,
-        i = 0;
+//     var w = ctx.canvas.width,
+//         h = ctx.canvas.height,
+//         idata = ctx.createImageData(w, h),
+//         buffer32 = new Uint32Array(idata.data.buffer),
+//         len = buffer32.length,
+//         i = 0;
 
-    for(; i < len;)
-        buffer32[i++] = ((80 * Math.random())|0) << 24;
+//     for(; i < len;)
+//         buffer32[i++] = ((80 * Math.random())|0) << 24;
     
-    ctx.putImageData(idata, 0, 0);
-}
+//     ctx.putImageData(idata, 0, 0);
+// }
 
-function loop(ctx, toggle) {
-    toggle = !toggle;
-    if (toggle) {
-        requestAnimationFrame(function() {
-            loop(ctx, !toggle);
-        });
-        return;
-    }
-    noise(ctx);
-    requestAnimationFrame(function() {
-        loop(ctx, !toggle);
-    });
-};
+// function loop(ctx, toggle) {
+//     toggle = !toggle;
+//     if (toggle) {
+//         requestAnimationFrame(function() {
+//             loop(ctx, !toggle);
+//         });
+//         return;
+//     }
+//     noise(ctx);
+//     requestAnimationFrame(function() {
+//         loop(ctx, !toggle);
+//     });
+// };
 
 window.onscroll = function() {scrollFunction()};
 
