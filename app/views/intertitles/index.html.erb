@@ -27,17 +27,26 @@
     <section class="main-content">
         <div class="gallery">
             <% @intertitles.each_with_index do |intertitle, index| %>
-                <div class="gallery-item">
-                    <!--div class="gallery-item font#{(1..5).to_a.sample}"-->
-                    <h2 class="title"><%= intertitle.title %></h2>
+            
+                
                     
-                    <div class="gallery-curtain">
-                            <!--<div><%= index %></div>-->
-                    </div>
-                    <%= link_to 'View', intertitle, :class => "button index_button"%>
-                </div>
+                <%= link_to intertitle_path(intertitle), class:"gallery-item" do%>
+                    <!--<div class="gallery-item">-->
+                    <!--div class="gallery-item font#{(1..5).to_a.sample}"-->
+                        <h2 class="title"><%= intertitle.title %></h2>
+                        
+     
+                       
+                        <!--<div class="gallery-curtain">-->
+                                <!--<%= index %>-->
+                                <!-- <%= link_to 'View', intertitle%>-->
+                        <!--</div>-->
+                       
+                
+                <% end %>
             <% end %>
         </div>
+        
         
     </section>
     <a name="footer"></a>
@@ -50,7 +59,7 @@
 Pellentesque molestie pretium magna, in mattis nisi tristique et. Nulla facilisi. Aliquam dictum lectus libero, ac placerat ex sagittis quis. Donec sit amet libero dapibus, sagittis tellus vitae, varius mauris. Pellentesque imperdiet aliquet magna at facilisis. Donec quis ullamcorper lacus. Morbi sed tortor sem. Nam eu erat sit amet mi lacinia aliquam. Mauris feugiat, nisi eu aliquet gravida, nunc justo mattis nulla, ac ullamcorper sapien velit nec sapien. Proin placerat odio vitae ultricies iaculis. Duis sollicitudin mattis quam viverra maximus. Proin dapibus, leo consequat ultricies efficitur, arcu tellus vehicula ante, id ornare diam metus quis lacus.</p>
         </div>
         <div class="aside2"></div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">&iquest;</button>
         </div>
     </footer>
 </div>
@@ -98,7 +107,7 @@ Pellentesque molestie pretium magna, in mattis nisi tristique et. Nulla facilisi
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+  if (document.body.scrollTop > 3000 || document.documentElement.scrollTop > 3000) {
     // document.getElementById("myBtn").classList.remove('top');
     document.getElementById("myBtn").style.display="block";
   } else {
