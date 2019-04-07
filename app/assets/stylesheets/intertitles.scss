@@ -266,13 +266,17 @@ h2 {
   &:before {
     content: 'view';
     background:url(https://media.giphy.com/media/EXHXTLY7ntczK/giphy.gif);
+    color: white;
     position: absolute;
+    padding: 20%;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     opacity: 0.7;
     transform: translateY(400px);
+    text-align: center;
+    z-index:-3;
   }
   &:hover:before {
     transform: translateY(0);
@@ -440,8 +444,5 @@ canvas {
   h2 {
     bottom: 0;
   }
-  .canvas {
-    padding-top: 100px;
-    top: 0;
-  }
+  
 }
