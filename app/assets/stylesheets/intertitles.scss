@@ -274,7 +274,7 @@ h2 {
     bottom: 0;
     right: 0;
     opacity: 0.7;
-    transform: translateY(400px);
+    transform: translateY(500px);
     text-align: center;
     z-index:-3;
   }
@@ -287,7 +287,8 @@ h2 {
 }
 
 .gallery-item:nth-child(3n) {
-  width: calc(66.6% - 40px);
+  width: calc(66% - 20px);
+  margin: 10px 5px 0px 10px;
   height: 452px;
 }
 
