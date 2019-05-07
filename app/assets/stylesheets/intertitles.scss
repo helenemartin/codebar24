@@ -57,7 +57,7 @@ header h2:hover {
 
 #myBtn {
   display: none;
-  position: fixed;.
+  position: fixed;
   bottom: 20px;
   right: 30px;
   z-index: 99;
@@ -259,7 +259,7 @@ h2 {
   width: calc( 100% - 40px);
   // background-size: cover;
   position: relative;
-  border: 1px solid #fff;
+  border: 1px solid black;
   z-index: 1;
   border-radius: 8px;
   box-shadow: 0 5px 5px 2px rgba(121, 121, 104, 0.1);
@@ -438,7 +438,7 @@ canvas {
 
 @media (min-width: 800px) {
   .sticky {
-    width: 99%;
+    width: 100%;
   }
   .gallery-item {
     width: calc(33.3% - 40px);
