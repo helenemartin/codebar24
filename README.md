@@ -1,3 +1,11 @@
+Intertitles 
+
+MVP initiated at Codebar Session on a 24th of August 2018
+
+Video tour:
+
+
+https://vimeo.com/434241636
 
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
